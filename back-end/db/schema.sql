@@ -1,6 +1,13 @@
-DROP TABLE IF EXISTS test;
+\c cedar; 
 
-CREATE TABLE test (
+DROP TABLE IF EXISTS appointments;
+
+CREATE TABLE appointments (
     id SERIAL PRIMARY KEY, 
-    name TEXT
+    doctor TEXT,
+    img TEXT,
+    patient TEXT,
+    reason_for_visit TEXT,
+    notes TEXT,
+    date TEXT
 );
