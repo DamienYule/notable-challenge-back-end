@@ -5,5 +5,6 @@
 - Data base is hosted on [Heroku](https://arcane-scrubland-59259.herokuapp.com/).
 - You can Get all doctors here => [doctors](https://arcane-scrubland-59259.herokuapp.com/doctors)
 
+..still debugging the other routes dealing with date and time queries.
 
 
