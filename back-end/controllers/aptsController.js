@@ -9,7 +9,8 @@ const {
 } = require("../queries/aptsQueries");
 
 appointments.get("/", async (req, res) => {
-  const allApts = await fetchAllApts();
+  const {doctor_id, date} = req.query
+  const allApts = await fetchAllApts(doctor_id, date);
   res.json(allApts);  
 });
 
@@ -20,6 +21,11 @@ appointments.get("/:id", async (req, res) => {
 });
 
 appointments.post("/", async (req, res) => {
+  // const time = req.body.time
+  // min = time parse int and stringcut
+  // if(min%15 != 0){
+    // return { success: false, payload: "Not an interval of 15" }
+  // }else{
   const createdApt = await newApt(req.body);
   res.json(createdApt);
 });

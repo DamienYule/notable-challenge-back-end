@@ -1,5 +1,4 @@
 INSERT INTO
-    appointments (doctor,img,patient, reason_for_visit, notes, date)
     doctors (first_name,last_name) 
 VALUES
     ('Sathish','Modugu'),
@@ -8,18 +7,20 @@ INSERT INTO
     appointments (doctor_id, patient_first_name, patient_last_name, date, time, kind)
 VALUES
     (
-        'Sathish Modugu',
-        'https://sa1s3optim.patientpop.com/assets/images/provider/photos/1846509.png',
-        'Jonny Walker',
+        1,
+        'Jonny',
+        'Walker',
         'Back pain',
-        'Keep it comming',
-        '2/22/2022 at 10:30 AM'
+        '2001-09-28',
+        '12:00:00',
+        'New Patient' 
     ),
     (
-        'Karin A. Schott',
-        'https://dynl.mktgcdn.com/p/AwWv6kbvuS8ymY-zlzZI82Gd0hDyybK7U4KpTY0EDwQ/1.0000/630x630.jpg',
-        'Diane Strong',
+        2,
+        'Diane',
+        'Strong',
         'Check up',
-        'Just in case',
-        '2/08/2022 at 03:00 PM'
+        '2001-09-28',
+        '13:00:00',
+        'Follow-up'
     );

@@ -1,8 +1,8 @@
 const db = require("../db/dbConfig");
 
-const fetchAllApts = async () => {
+const fetchAllApts = async (doctor_id, date) => {
   try {
-    const allApts = await db.any("SELECT * FROM appointments");
+    const allApts = await db.any("SELECT * FROM appointments WHERE doctor_id=$1 and WHERE date=$2",[doctor_id, date]);
     return { success: true, payload: allApts };
   } catch (error) {
     console.log(error);
@@ -23,12 +23,12 @@ const fetchApt = async (id) => {
 };
 
 const newApt = async (apt) => {
-  const { doctor,img,patient, reason_for_visit, notes, date} =
+  const { doctor_id, patient_first_name, patient_last_name, date, time, kind} =
     apt;
   try {
     const createdApt = await db.one(
-      `INSERT INTO appointments (doctor, img, patient, reason_for_visit, notes, date) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
-      [doctor,img,patient, reason_for_visit, notes, date]
+      `INSERT INTO appointments (doctor_id, patient_first_name, patient_last_name, date, time, kind) VALUES ($1,$2,$3,$4,$5,$6) RETURNING *`,
+      [doctor_id, patient_first_name, patient_last_name, date, time, kind]
     );
     return { success: true, payload: createdApt };
   } catch (error) {
@@ -38,12 +38,12 @@ const newApt = async (apt) => {
 };
 
 const updateApt = async (id, apt) => {
-  const { doctor,img,patient, reason_for_visit, notes, date} =
+  const { doctor_id, patient_first_name, patient_last_name, date, time, kind} =
     apt;
   try {
     const updatedApt = await db.one(
-      `UPDATE appointments SET doctor=$1,img=$2,patient=$3, reason_for_visit=$4, notes=$5, date=$6 WHERE id=$7 RETURNING *`,
-      [doctor,img,patient, reason_for_visit, notes, date, id]
+      `UPDATE appointments SET doctor_id=$1,patient_first_name=$2,patient_last_name=$3, date=$4, time=$5, kind=$6 WHERE id=$7 RETURNING *`,
+      [doctor_id, patient_first_name, patient_last_name, date, time, kind, id]
     );
     return { success: true, payload: updatedApt };
   } catch (error) {

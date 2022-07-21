@@ -10,10 +10,10 @@ CREATE TABLE doctors (
 
 CREATE TABLE appointments (
     id SERIAL PRIMARY KEY, 
-    doctor TEXT,
-    img TEXT,
-    patient TEXT,
-    reason_for_visit TEXT,
-    notes TEXT,
-    date TEXT
+    doctor_id int REFERENCES "doctors" (id) ON DELETE CASCADE,
+    patient_first_name TEXT,
+    patient_last_name TEXT,
+    date DATE,
+    time time,
+    kind appointment_type
 );
