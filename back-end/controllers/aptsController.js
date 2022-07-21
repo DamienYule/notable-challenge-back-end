@@ -10,7 +10,8 @@ const {
 
 appointments.get("/", async (req, res) => {
   const {doctor_id, date} = req.query
-  const allApts = await fetchAllApts(doctor_id, date);
+  const allApts = await fetchAllApts(doctor_id);
+  allApts.filter((apt)=>{apt.payload.date.substring(0, 10) == date})
   res.json(allApts);  
 });
 
