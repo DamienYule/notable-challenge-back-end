@@ -11,6 +11,7 @@ const {
 appointments.get("/", async (req, res) => {
   const {doctor_id, date} = req.query
   const allApts = await fetchAllApts(doctor_id);
+  console.log(allApts,"hello")
   const filteredApt = allApts.filter((apt)=>{return apt.payload.date.substring(0, 10) == date})
   res.json(filteredApt);  
 });
