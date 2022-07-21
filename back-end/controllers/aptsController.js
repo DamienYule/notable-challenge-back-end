@@ -11,8 +11,8 @@ const {
 appointments.get("/", async (req, res) => {
   const {doctor_id, date} = req.query
   const allApts = await fetchAllApts(doctor_id);
-  allApts.filter((apt)=>{apt.payload.date.substring(0, 10) == date})
-  res.json(allApts);  
+  const filteredApt = allApts.filter((apt)=>{return apt.payload.date.substring(0, 10) == date})
+  res.json(filteredApt);  
 });
 
 appointments.get("/:id", async (req, res) => {
@@ -23,7 +23,7 @@ appointments.get("/:id", async (req, res) => {
 
 appointments.post("/", async (req, res) => {
   // const time = req.body.time
-  // min = time parse int and stringcut
+  // min = time parse int and substring
   // if(min%15 != 0){
     // return { success: false, payload: "Not an interval of 15" }
   // }else{
