@@ -9,8 +9,8 @@ const {
 } = require("../queries/aptsQueries");
 
 appointments.get("/", async (req, res) => {
-  const {doctor_id} = req.query
-  const allApts = await fetchAllApts(doctor_id);
+  const {doctor_id, date} = req.query
+  const allApts = await fetchAllApts(doctor_id, date);
   res.json(allApts);  
 });
 
