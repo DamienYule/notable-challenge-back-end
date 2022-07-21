@@ -1,5 +1,11 @@
 INSERT INTO
     appointments (doctor,img,patient, reason_for_visit, notes, date)
+    doctors (first_name,last_name) 
+VALUES
+    ('Sathish','Modugu'),
+    ('Karin' , 'Schott');
+INSERT INTO
+    appointments (doctor_id, patient_first_name, patient_last_name, date, time, kind)
 VALUES
     (
         'Sathish Modugu',
