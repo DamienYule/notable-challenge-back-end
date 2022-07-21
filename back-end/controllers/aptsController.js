@@ -11,7 +11,7 @@ const {
 appointments.get("/", async (req, res) => {
   const {doctor_id, date} = req.query
   const allApts = await fetchAllApts(doctor_id);
-  const filteredApt = allApts.filter((apt)=>{return apt.payload.date.substring(0, 10) == date})
+  const filteredApt = allApts.payload.filter((apt)=>{return apt.date.toISOString().substring(0, 10) == date})
   res.json(filteredApt);  
 });
 
@@ -22,13 +22,16 @@ appointments.get("/:id", async (req, res) => {
 });
 
 appointments.post("/", async (req, res) => {
-  // const time = req.body.time
-  // min = time parse int and substring
-  // if(min%15 != 0){
-    // return { success: false, payload: "Not an interval of 15" }
-  // }else{
-  const createdApt = await newApt(req.body);
-  res.json(createdApt);
+  const time = req.body.time
+  const min = parseInt(time.split(":")[1])
+  if(min%15 !== 0){
+    res.json({ success: false, payload: "Not an interval of 15 min" })
+  }
+  else
+  {
+    const createdApt = await newApt(req.body);
+    res.json(createdApt);
+  }
 });
 
 appointments.put("/:id", async (req, res) => {
