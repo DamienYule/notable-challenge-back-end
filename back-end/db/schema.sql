@@ -1,4 +1,5 @@
 DROP TABLE IF EXISTS appointments;
+DROP TABLE IF EXISTS doctors;
 
 CREATE TYPE appointment_type AS ENUM ('New Patient', 'Follow-up');
 
