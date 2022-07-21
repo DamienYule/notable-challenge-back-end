@@ -10,7 +10,6 @@ VALUES
         1,
         'Jonny',
         'Walker',
-        'Back pain',
         '2001-09-28',
         '12:00:00',
         'New Patient' 
@@ -19,7 +18,6 @@ VALUES
         2,
         'Diane',
         'Strong',
-        'Check up',
         '2001-09-28',
         '13:00:00',
         'Follow-up'
