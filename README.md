@@ -12,7 +12,10 @@ Use this url
 ```
 https://arcane-scrubland-59259.herokuapp.com/appointments
 ```
-Use this object in the body
+- Every appointment has it's own unique ID, therefore to delete an appointment you can pass the ID as a parameter in the request 
+  `https://arcane-scrubland-59259.herokuapp.com/appointments/7`
+  
+Use this object in the body for posting 
 ```
 {
     "doctor_id": 2,
@@ -24,5 +27,8 @@ Use this object in the body
 		}
 
 ```
+
 - Change the minutes on your time variable to not be a division of 15 and see what happens.
 - Post the same date, time, and doctor 3 times and see what happens. 
+
+
