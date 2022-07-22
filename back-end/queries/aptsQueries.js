@@ -1,6 +1,16 @@
 const db = require("../db/dbConfig");
 
-const fetchAllApts = async (doctor_id) => {
+const fetchAllApts = async () => {
+  try {
+    const allApts = await db.any("SELECT * FROM appointments");
+    return { success: true, payload: allApts };
+  } catch (error) {
+    console.log(error);
+    return { success: false, payload: error };
+  }
+};
+
+const fetchAllAptsForDoc = async (doctor_id) => {
   try {
     const allApts = await db.any("SELECT * FROM appointments WHERE doctor_id=$1",doctor_id);
     return { success: true, payload: allApts };
@@ -62,4 +72,4 @@ const deleteApt = async (id) => {
   }
 }
 
-module.exports = { fetchAllApts, fetchApt, newApt, updateApt, deleteApt };
+module.exports = { fetchAllApts, fetchApt, newApt, updateApt, deleteApt, fetchAllAptsForDoc };
