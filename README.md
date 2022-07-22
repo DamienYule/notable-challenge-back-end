@@ -5,7 +5,7 @@
 - Data base is hosted on [Heroku](https://arcane-scrubland-59259.herokuapp.com/).
 ### Get requests
 - Get all doctors here => [https://arcane-scrubland-59259.herokuapp.com/doctors](https://arcane-scrubland-59259.herokuapp.com/doctors)
-- Get all apointments for a specific doctor on a specific day by querying with doctor_id & date => [https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2022-07-25](https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2001-09-28)
+- Get all apointments for a specific doctor on a specific day by querying with doctor_id & date => [https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2022-07-25](https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2022-07-25)
 
 ### Posting with Insomnia 
 Use this url
