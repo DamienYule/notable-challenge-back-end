@@ -3,7 +3,7 @@
 - In order to see all `CRUD` operations you can use the browser and a tool like `Insomnia` or `Postman`.
 
 - Data base is hosted on [Heroku](https://arcane-scrubland-59259.herokuapp.com/).
-### Get requests can be generated in the browser
+### Get requests
 - Get all doctors here => [https://arcane-scrubland-59259.herokuapp.com/doctors](https://arcane-scrubland-59259.herokuapp.com/doctors)
 - Get all apointments for a specific doctor on a specific day by querying with doctor_id & date => [https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2022-07-25](https://arcane-scrubland-59259.herokuapp.com/appointments?doctor_id=1&date=2001-09-28)
 
@@ -24,5 +24,5 @@ Use this object in the body
 		}
 
 ```
-- Change the minutes on your time variable to not be a devision of 15 and see what happens.
-- Post the same date and time 3 times and see what happens. 
+- Change the minutes on your time variable to not be a division of 15 and see what happens.
+- Post the same date, time, and doctor 3 times and see what happens. 
