@@ -12,7 +12,7 @@ app.use("/appointments", aptsController)
 app.use("/doctors", docController)
 
 app.get("/", (req, res) => {
-  res.send("Hello world!");
+  res.send("Notable back end challenge");
 });
 
 app.get("*", (req, res) => {

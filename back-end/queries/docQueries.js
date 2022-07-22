@@ -27,7 +27,7 @@ const newDoc = async (doc) => {
     doc;
   try {
     const createdDoc = await db.one(
-      `INSERT INTO appointments (last_name, last_name) VALUES ($1,$2) RETURNING *`,
+      `INSERT INTO doctors (first_name, last_name) VALUES ($1,$2) RETURNING *`,
       [first_name,last_name]
     );
     return { success: true, payload: createdDoc };
@@ -37,8 +37,8 @@ const newDoc = async (doc) => {
   }
 };
 
-const updateDoc = async (id, Doc) => {
-  const { first_name,last_name} =
+const updateDoc = async ( Doc) => {
+  const { id, first_name,last_name} =
     Doc;
   try {
     const updatedDoc = await db.one(

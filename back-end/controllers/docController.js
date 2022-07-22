@@ -21,20 +21,19 @@ doctors.get("/:id", async (req, res) => {
 });
 
 doctors.post("/", async (req, res) => {
-  const createdApt = await newDoc(req.body);
-  res.json(createdApt);
+  const createdDoc = await newDoc(req.body);
+  res.json(createdDoc);
 });
 
-doctors.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const updatedApt = await updateDoc(id, req.body);
-  res.json(updatedApt);
+doctors.put("/", async (req, res) => {
+  const updatedDoc = await updateDoc(req.body);
+  res.json(updatedDoc);
 });
 
 doctors.delete("/:id", async (req, res) => {
   const { id } = req.params;
-  const deletedApt = await deleteDoc(id)
-  res.json(deletedApt)
+  const deletedDoc = await deleteDoc(id)
+  res.json(deletedDoc)
 });
 
 module.exports = doctors;
